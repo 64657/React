@@ -1,0 +1,58 @@
+/* Navbar Component Styles */
+.navbar {
+  background-color: #333; /* Background color for the whole navbar */
+  color: white; /* Text color */
+  font-size: 16px;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px; /* Add padding for spacing */
+}
+
+.navbar-title {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-cart span {
+  margin-right: 20px; /* Add spacing between cart info and services icon */
+  display: flex;
+  align-items: center;
+}
+
+.cart-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cart-items li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.cart-items button {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.cart-items button:hover {
+  color: red; /* Change button color on hover */
+}
+
+.navbar-services span {
+  display: flex;
+  align-items: center;
+}
+
+/* Icons Styling */
+svg {
+  margin-right: 5px; /* Add spacing between icon and text */
+  font-size: 20px;
+}
