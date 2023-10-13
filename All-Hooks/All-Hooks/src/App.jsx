@@ -6,6 +6,7 @@ import HookUseRef from './All-hooks/HookUseRef'
 import HookUseContext from './All-hooks/HookUseContext'
 import HookUseReducer from './All-hooks/HookUseReducer'
 import HookUseImperativeHandle from './All-hooks/HookUseImperativeHandle'
+import Hookspractise from './All-hooks/Hookspractise'
 
 
 function App() {
@@ -18,7 +19,8 @@ function App() {
         {/* <HookUseRef/> */}
         {/* <HookUseContext/> */}
         {/* <HookUseReducer/> */}
-        <HookUseImperativeHandle/>
+        {/* <HookUseImperativeHandle/> */}
+        <Hookspractise/>
       </div>
     </>
   )
