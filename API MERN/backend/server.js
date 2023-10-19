@@ -45,7 +45,7 @@ app.use('/api/users', userRoutes);
 app.use("/api/notes", noteRoutes);
 
 // deployment
-const _dirname1 = path.resolve();
+const __dirname= path.resolve();
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "dist")))
 
