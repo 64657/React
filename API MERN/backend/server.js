@@ -32,11 +32,11 @@ app.use("/api/notes", noteRoutes);
 
 // Serve the React Vite app in production
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "frontend/dist")));
+  app.use(express.static(path.join(__dirname, "frontend/frontend/dist")));
 
   // Put this catch-all route at the end
   app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, "dist", "index.html"));
+    res.sendFile(path.join(__dirname, "frontend/frontend/dist/index.html"));
   });
 }
 
