@@ -77,35 +77,35 @@
 // console.log(newFunc())
 
 
-// Array.map((num, i, arr) =>  {})
+Array.map((num, i, arr) =>  {})
 
-// Array.prototype.myMap = function(cb) {
-//     let temp = [];
-//     for(let i =0; i < this.length; i++) {
-//         temp.push(cb(this[i] , i, this));
-//     }
-//     return temp;
-// }
+Array.prototype.myMap = function(cb) {
+    let temp = [];
+    for(let i =0; i < this.length; i++) {
+        temp.push(cb(this[i] , i, this));
+    }
+    return temp;
+}
 
-// Array.filter((num, i, arr) => {}) 
+Array.filter((num, i, arr) => {}) 
 
-// Array.prototype.myFilter = function(cb) {
-//     let temp = [];
-//     for(let i = 0; i < this.length; i++) {
-//         if(cb(this[i], i, this)) temp.push(this[i]);
-//     }
-//     return temp;
-// }
+Array.prototype.myFilter = function(cb) {
+    let temp = [];
+    for(let i = 0; i < this.length; i++) {
+        if(cb(this[i], i, this)) temp.push(this[i]);
+    }
+    return temp;
+}
 
-// Array.reduce((acc,curr, i, arr) => {});
+Array.reduce((acc,curr, i, arr) => {});
 
-// Array.prototype.myReduce = function(cb, initialValue) {
-//     var accumulator = initialValue;
-//     for(let i = 0; i < this.length; i++) {
-//         accumulator = accumulator ? cb(accumulator, this[i], i, this) : this[i]
-//     }
-//     return accumulator;
-// }
+Array.prototype.myReduce = function(cb, initialValue) {
+    var accumulator = initialValue;
+    for(let i = 0; i < this.length; i++) {
+        accumulator = accumulator ? cb(accumulator, this[i], i, this) : this[i]
+    }
+    return accumulator;
+}
 
 const car2 = {
     color: "Red",
@@ -114,26 +114,26 @@ const car2 = {
 function purchaseCar (currency , price){
 console.log(`I have bought ${this.color} ${this.type}  car for ${currency} ${price}`);
 }
-// Function.prototype.myCall = function(context ={} , ...args) {
-//     if(typeof this !== "function") {
-//         throw new Error (this + "its not Callable")
-//     }
-//     context.fn = this;
-//     return context.fn(...args)
-// }
-// purchaseCar.myCall(car2, "$", 90934970347)
+Function.prototype.myCall = function(context ={} , ...args) {
+    if(typeof this !== "function") {
+        throw new Error (this + "its not Callable")
+    }
+    context.fn = this;
+    return context.fn(...args)
+}
+purchaseCar.myCall(car2, "$", 90934970347)
 
-// Function.prototype.myApply = function(context ={} , args = []) {
-//     if(typeof this !== "function") {
-//         throw new Error (this + "CreateListFrom called on non-object");
-//     }
-//     if(!Array.isArray(args)) {
-//         throw new typeError (this + " like me")
-//     }
-//     context.fn = this;
-//     return context.fn(...args)
-// }
-// purchaseCar.myApply(car2, ["$", 90934970347])
+Function.prototype.myApply = function(context ={} , args = []) {
+    if(typeof this !== "function") {
+        throw new Error (this + "CreateListFrom called on non-object");
+    }
+    if(!Array.isArray(args)) {
+        throw new typeError (this + " like me")
+    }
+    context.fn = this;
+    return context.fn(...args)
+}
+purchaseCar.myApply(car2, ["$", 90934970347])
 
 
 // Function.prototype.myBind = function(context ={} , args = []) {
