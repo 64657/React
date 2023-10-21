@@ -4,7 +4,7 @@ import {useNavigate} from 'react-router-dom';
 
 
 
-function Register({ history }) {
+function Register() {
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         username: '',
@@ -17,14 +17,11 @@ function Register({ history }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // to prevent refresh
 
         try {
             const response = await axios.post('https://notezipper1.onrender.com/api/register', formData);
             console.log(response.data);
-            // console.log("$$$$$$$$",history);
             navigate('/login');
-            // history.push('/login');
         } catch (error) {
             console.error(error);
         }

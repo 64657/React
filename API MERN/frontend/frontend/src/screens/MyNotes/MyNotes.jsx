@@ -33,7 +33,6 @@ function MyNotes ( {search}) {
 
   const deleteHandler = (id) => {
     if (window.confirm("Are you sure?")) {
-      // Handle the deletion logic here
       dispatch(deleteNoteAction(id));
     }
   };
@@ -47,16 +46,6 @@ function MyNotes ( {search}) {
   }, [dispatch, successCreate, userInfo, successUpdate, 
     loadingDelete, errorDelete, succesDelete
   ])
-
-  // const fetchNotes = async () => {
-  //   try {
-  //     const response = await axios.get('https://notezipper1.onrender.com/api/notes'); // Correct the URL
-  //     // setNotes(response.data);
-  //     console.log(response.data)
-  //   } catch (error) {
-  //     console.error('Error fetching notes:', error);
-  //   }
-  // };
 
   return (
     <MainScreen title={`Welcome Back ${userInfo && userInfo.name}..`}>
