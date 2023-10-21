@@ -50,7 +50,7 @@ function MyNotes ( {search}) {
 
   // const fetchNotes = async () => {
   //   try {
-  //     const response = await axios.get('http://localhost:3000/api/notes'); // Correct the URL
+  //     const response = await axios.get('https://notezipper1.onrender.com/api/notes'); // Correct the URL
   //     // setNotes(response.data);
   //     console.log(response.data)
   //   } catch (error) {

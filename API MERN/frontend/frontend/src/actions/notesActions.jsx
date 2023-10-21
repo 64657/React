@@ -30,7 +30,7 @@ import {
         },
       };
   
-      const { data } = await axios.get(`http://localhost:3000/api/notes`, config);
+      const { data } = await axios.get(`https://notezipper1.onrender.com/api/notes`, config);
   
       dispatch({
         type: NOTES_LIST_SUCCESS,
@@ -69,7 +69,7 @@ import {
       };
   
       const { data } = await axios.post(
-        `http://localhost:3000/api/notes/create`,
+        `https://notezipper1.onrender.com/api/notes/create`,
         { title, content, category },
         config
       );
@@ -106,7 +106,7 @@ import {
         },
       };
   
-      const { data } = await axios.delete(`http://localhost:3000/api/notes/${id}`, config);
+      const { data } = await axios.delete(`https://notezipper1.onrender.com/api/notes/${id}`, config);
   
       dispatch({
         type: NOTES_DELETE_SUCCESS,
@@ -145,7 +145,7 @@ import {
       };
   
       const { data } = await axios.put(
-        `http://localhost:3000/api/notes/${id}`,
+        `https://notezipper1.onrender.com/api/notes/${id}`,
         { title, content, category },
         config
       );

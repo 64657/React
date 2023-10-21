@@ -20,7 +20,7 @@ export const login = (email, password) => async(dispatch) => {
         // setLoading(true);
     
         const {data} = await axios.post(
-          "http://localhost:3000/api/users/login",
+          "https://notezipper1.onrender.com/api/users/login",
           {
             email,
             password,
@@ -56,7 +56,7 @@ export const register = (name, email, password, pic) => async(dispatch) => {
     };
 
     const { data } = await axios.post(
-      "http://localhost:3000/api/users",
+      "https://notezipper1.onrender.com/api/users",
       { name, pic, email, password },
       config
     );
@@ -90,7 +90,7 @@ export const updateProfile = (user) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.post(
-      "http://localhost:3000/api/users/profile",
+      "https://notezipper1.onrender.com/api/users/profile",
       { user },
       config
     );

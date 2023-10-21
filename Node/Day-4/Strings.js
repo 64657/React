@@ -24,6 +24,24 @@ var reverseString = function(s) {
     }
 }
 
+
+var reverseStr = function(s, k) {
+    const strArray = s.split('');
+    const n  = s.length;
+
+    for(let i = 0; i < n; i += 2*k) {
+        let start = i;
+        let end  =Math.min(i + k -1, n - 1);
+
+        while(start < end) {
+            let temp = strArray[start];
+            strArray[start++] = strArray[end];
+            strArray[end--] = temp
+        }
+    }
+    return strArray.join('')
+}
+
 var isAnagram = function(s, t) {
     if(s.length !== t.length){
         return false;
@@ -43,6 +61,17 @@ var isAnagram = function(s, t) {
 
     return true
 }
+
+var groupAnagram = function(strs) {
+    let obj = {}
+    strs.forEach (str => {
+        const sorted = str.split('').sort.().join('')
+        obj[sorted] ? obj[sorted].push(str) : obj[sorted] = [str]
+    })
+    return Object.values(obj)
+}
+
+
 
 var hammingDistance = function(x, y) {
     x = x.toString(2);
@@ -93,3 +122,23 @@ function expandFromCenter(s, left, right) {
     }
     return s.substring(left + 1, right);
 }
+
+
+var groupAnagrams = function(strs) {
+    let obj = {};
+    strs.forEach (str => {
+        const sorted = str.split('').sort().join('')
+        obj[sorted] ? obj[sorted].push(str) : obj[sorted] = [str]
+    })
+    return Object.values(obj)
+}
+
+
+var longestcommonPrefix = function(strs) {
+    let output = '';
+    for(let i = 0; i < strs[0].length; i++) {
+        if(strs.every(str => str[i] === strs[0][i])) output += strs[0][i];
+        else break;
+    }
+    return output;
+} if(strs.every(str => str[i] === strs[0][i]))output += strs[0][i]

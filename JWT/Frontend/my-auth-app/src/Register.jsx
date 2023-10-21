@@ -20,7 +20,7 @@ function Register({ history }) {
         // to prevent refresh
 
         try {
-            const response = await axios.post('http://localhost:3000/api/register', formData);
+            const response = await axios.post('https://notezipper1.onrender.com/api/register', formData);
             console.log(response.data);
             // console.log("$$$$$$$$",history);
             navigate('/login');
