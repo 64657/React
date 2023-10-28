@@ -1,0 +1,78 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: #333; /* Change text color for better visibility on dark background */
+  background-color: #f9f9f9; /* Change the background color */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  font-weight: 500;
+  color: #007BFF; /* Make links more noticeable */
+  text-decoration: none; /* Remove underline */
+}
+
+a:hover {
+  color: #0056b3; /* Change link color on hover */
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #007BFF; /* Set an attractive background color */
+}
+
+h1 {
+  font-size: 2em;
+  line-height: 1.2;
+  margin: 20px 0;
+  color: #007BFF; /* Change the heading color */
+}
+
+button {
+  border-radius: 8px;
+  border: none; /* Remove the border */
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #007BFF; /* Use a blue background for buttons */
+  color: #fff; /* Text color for buttons */
+  cursor: pointer;
+  transition: background-color 0.25s;
+}
+
+button:hover {
+  background-color: #0056b3; /* Change button background on hover */
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #333; /* Dark text color for light mode */
+    background-color: #fff; /* Light background color */
+  }
+  a:hover {
+    color: #007BFF; /* Change link color on hover in light mode */
+  }
+  button {
+    background-color: #007BFF; /* Button background color in light mode */
+  }
+  button:hover {
+    background-color: #0056b3; /* Button background on hover in light mode */
+  }
+}

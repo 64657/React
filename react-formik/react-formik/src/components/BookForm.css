@@ -1,0 +1,39 @@
+.form {
+    background: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+    text-align: center; /* Center the content */
+  }
+  
+  .form label {
+    font-weight: bold;
+    display: block; /* Add a line break after labels */
+    margin-bottom: 5px;
+  }
+  
+  .form input,
+  .form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Include padding and border in the width */
+  }
+  
+  .form button {
+    background: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px; /* Add some space above the button */
+  }
+  
+  .error {
+    color: #FF0000;
+  }
+  
