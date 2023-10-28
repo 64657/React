@@ -141,4 +141,57 @@ var longestcommonPrefix = function(strs) {
         else break;
     }
     return output;
-} if(strs.every(str => str[i] === strs[0][i]))output += strs[0][i]
+} 
+
+var myAtoi = function(s) {
+    s = s.trim();
+    let isNegative = false;
+
+    if(s[0] === '-') {
+        isNegative = true;
+        s= s.substring(1)
+    }else if (s[0] === '+') {
+        s = s.substring(1);
+    }
+
+    let result = 0;
+
+    for(let i = 0; i = s.length; i++) {
+        const char = s[i];
+        if(/\d/.test(char)) {
+           result = result * 10 + parseInt(cahr)
+        } else {
+            break;
+        }
+    }
+
+    result = isNegative ? -result : result;
+
+    if(result < Math.pow(-2, 31)) {
+        return Math.pow(-2, 31);
+    } else if(result > Math.pow(2,31) -1) {
+        return  Math.pow(2, 31) -1
+    }
+
+    return result
+}
+
+var lengthOfLongestSubstring = function(s) {
+    if(!s) return 0;
+    let end = 0;
+    let start = 0;
+    let maxlength = 0;
+    let uniquechar = new Set();
+
+    while(end < s.length) {
+        if(!uniquechar.has(s[end])) {
+            uniquechar.add(s[end]);
+            end++;
+            maxlength = Math.max(maxlength, uniquechar.size)
+        } else {
+            uniquechar.delete(s[start]);
+            start++
+        }
+    }
+    return maxlength
+}

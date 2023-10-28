@@ -4,7 +4,7 @@ var calculate = function(s) {
     let num = 0;
     let sign = 1;
 
-    for(let i =o; i < s.length; i++) {
+    for(let i =0; i < s.length; i++) {
         const char = s[i];
 
         if(char >= '0' && char <= '9') {
@@ -158,7 +158,7 @@ function pivot(arr, start = 0, end = arr.length - 1) {
     let swapIdx = start;
     for(let i = start + 1; i < arr.length; i++) {
         if(pivot > arr[i]) {
-            swapidx++;
+            swapIdx++;
             swap(arr, swapIdx, i)
         }
     }
@@ -173,3 +173,5 @@ function quickSort(arr, start = 0, end = arr.length - 1) {
         quickSort(arr, pivotIndex+1, end)
     }
 }
+
+

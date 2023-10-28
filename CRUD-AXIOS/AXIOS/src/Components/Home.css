@@ -1,0 +1,41 @@
+
+.bg {
+  background-color: #f7f7f7;
+  padding: 20px;
+}
+
+.container {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+  color: #ff5733; 
+  font-size: 24px;
+}
+
+.form-control {
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px; 
+  margin-bottom: 10px;
+}
+
+.btn-primary {
+  background-color: #ff5733; 
+  color: #fff;
+  font-size: 18px; 
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.btn-primary:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(255, 87, 51, 0.5);
+}
