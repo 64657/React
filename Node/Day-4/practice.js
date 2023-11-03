@@ -520,7 +520,7 @@ var generateParenthesis = function(n) {
         }
     
         if(close < open) {
-            backtrack(curr +')'. open , close + 1)
+            backtrack(curr +')', open , close + 1)
         }
         backtrack('', 0, 0);
         return result;

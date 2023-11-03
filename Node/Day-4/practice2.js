@@ -399,7 +399,7 @@ var searchRange = function(nums, target) {
     right = nums.length - 1;
     last = -1;
 
-    while(left <- right) {
+    while(left <= right) {
         let mid = Math.floor((left + right) / 2);
 
         if(nums[mid] === target) {
