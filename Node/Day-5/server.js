@@ -11,7 +11,7 @@ const Student = require("./models/Student");
 const app = express();
 
 const PORT = 3001;
-const DB_URL = "mongodb+srv://fasee:fasee1998@cluster0.y7puo7y.mongodb.net/?retryWrites=true&w=majority&appName=AtlasApp"
+const DB_URL = "mongodb+srv://faseeullah:fasee@cluster0.wsh4a1u.mongodb.net/mohammed"
 
 app.use(bodyParser.json());
 
@@ -69,6 +69,47 @@ app.post("/mentor/:mentorId/assign", async (req, res) => {
         res.status(400).send(error);
     }
 })
+
+  //Assign and change
+  app.put("/student/:studentId/assignMentor/:mentorId", async (req, res) => {
+    try {
+      const student = await Student.findById(req.params.studentId);
+      const nMentor = await Mentor.findById(req.params.mentorId);
+  
+      if (student.cMentor) {
+        student.pMentor.push(student.cMentor);
+      }
+  
+      student.cMentor = nMentor._id;
+      await student.save();
+      res.send(student);
+    } catch (error) {
+      res.status(400).send(error);
+    }
+  });
+
+    // Show all students for a particular mentor
+  app.get("/mentor/:mentorId/students", async (req, res) => {
+    try {
+      const mentor = await Mentor.findById(req.params.mentorId).populate(
+        "students"
+      );
+      res.send(mentor.students);
+    } catch (error) {
+      res.status(400).send(error);
+    }
+  });
+
+  app.get("/student/:studentId/pMentor", async (req, res) => {
+    try {
+      const mentor = await Student.findById(req.params.studentId).populate(
+        "pMentor"
+      );
+      res.send(mentor.pMentor);
+    } catch (error) {
+      res.status(400).send(error);
+    }
+  });
 
 
 app.listen(PORT, () => {
