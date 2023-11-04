@@ -1,10 +1,18 @@
 const express = require('express');
+const mongoose = require("mongoose");
 const bodyParser = require('body-parser');
 
 const app = express();
 const port = 3000;
+const DB_URL = "mongodb+srv://faseeullah:fasee@cluster0.wsh4a1u.mongodb.net/HallBooking"
 
 app.use(bodyParser.json());
+
+mongoose
+.connect(DB_URL, {})
+.then(() => console.log("Connected to MongoDB"))
+.catch((err) =>console.log("Could not connect to  MongoDB", err));
+
 
 // Local variables to store data 
 const rooms = [];
