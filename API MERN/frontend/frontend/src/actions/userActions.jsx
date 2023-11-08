@@ -45,7 +45,7 @@ export const logout = () => async (dispatch) => {
     dispatch({ type: USER_LOGIN_LOGOUT})
 }
 
-export const register = (name, email, password, pic) => async(dispatch) => {
+export const register = (data) => async(dispatch) => {
   try {
     dispatch({ type: USER_REGISTER_REQUEST});
 
@@ -57,7 +57,7 @@ export const register = (name, email, password, pic) => async(dispatch) => {
 
     const { data } = await axios.post(
       "https://notezipper1.onrender.com/api/users",
-      { name, pic, email, password },
+      {...data},
       config
     );
 
