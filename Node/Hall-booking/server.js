@@ -9,7 +9,7 @@ const DB_URL = "mongodb+srv://faseeullah:fasee@cluster0.wsh4a1u.mongodb.net/Hall
 app.use(bodyParser.json());
 
 mongoose
-.connect(DB_URL, {})
+.connect(DB_URL)
 .then(() => console.log("Connected to MongoDB"))
 .catch((err) =>console.log("Could not connect to  MongoDB", err));
 

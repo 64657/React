@@ -19,7 +19,7 @@ function Register() {
         e.preventDefault();
 
         try {
-            const response = await axios.post('https://notezipper1.onrender.com/api/register', formData);
+            const response = await axios.post('http://localhost:5173/api/register', formData);
             console.log(response.data);
             navigate('/login');
         } catch (error) {
