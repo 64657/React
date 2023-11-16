@@ -5,7 +5,7 @@ const nodemailer = require('nodemailer');
 const crypto = require('crypto');
 const { resetPasswordEmailTemplate } = require('../utils/resetPasswordEmailTemplate'); // Create the email template function
 const generateToken = require('../utils/generateToken')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 
 
 // const router = express.Router();
