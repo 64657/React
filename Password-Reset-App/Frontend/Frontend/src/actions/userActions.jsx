@@ -26,7 +26,7 @@ export const login = (email, password) => async(dispatch) => {
         // setLoading(true);
     
         const {data} = await axios.post(
-          "http://localhost:3000/api/users/login",
+          "https://passwordreset-olmp.onrender.com/api/users/login",
           {
             email,
             password,
@@ -63,7 +63,7 @@ export const register = (data) => async(dispatch) => {
     };
 
     const response  = await axios.post(
-      "http://localhost:3000/api/users/register",
+      "https://passwordreset-olmp.onrender.com/api/users/register",
       {...data},
       config
     );
@@ -119,7 +119,7 @@ export const updateProfile = (user) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.post(
-      "http://localhost:3000/api/users/profile",
+      "https://passwordreset-olmp.onrender.com/api/users/profile",
       { user },
       config
     );
@@ -154,7 +154,7 @@ export const forgetPassword = (email) => async (dispatch) => {
       };
   
       const { data } = await axios.post(
-        'http://localhost:3000/api/users/reset-password',
+        'https://passwordreset-olmp.onrender.com/api/users/reset-password',
         { email },
         config
       );
@@ -185,7 +185,7 @@ export const forgetPassword = (email) => async (dispatch) => {
       };
   
       const { data } = await axios.post(
-        `http://localhost:3000/api/users/reset-password/${token}`,
+        `https://passwordreset-olmp.onrender.com/api/users/reset-password/${token}`,
         { password },
         config
       );

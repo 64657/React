@@ -40,7 +40,7 @@ const initiatePasswordReset = asynchandler(async (req, res) => {
       }
     });
 
-    const resetLink = `http://localhost:5173/reset-password/?token=${resetToken}`;
+    const resetLink = `https://passwordreset-olmp.onrender.com/reset-password/?token=${resetToken}`;
    console.log(resetPasswordEmailTemplate)
     const mailOptions = {
       from: 'faseeullah.1998@gmail.com',
