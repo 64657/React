@@ -71,7 +71,7 @@ app.post("/mentor/:mentorId/assign", async (req, res) => {
 })
 
   //Assign and change
-  app.put("/student/:studentId/assignMentor/:mentorId", async (req, res) => {
+  app.post("/student/:studentId/assignMentor/:mentorId", async (req, res) => {
     try {
       const student = await Student.findById(req.params.studentId);
       const nMentor = await Mentor.findById(req.params.mentorId);
