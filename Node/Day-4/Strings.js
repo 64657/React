@@ -195,3 +195,23 @@ var lengthOfLongestSubstring = function(s) {
     }
     return maxlength
 }
+
+function loadJson(url) {
+    return fetch(url).then((response) => {
+        if(response.status === 200) {
+            return response.json()
+        }else {
+            throw new Error (response.status)
+        }
+    })
+}
+
+class user {
+    constructor(n) {
+        this.name = n
+    }
+    getName() {
+        console.log(this.name);
+    }
+}
+const User = new user("Fasee")

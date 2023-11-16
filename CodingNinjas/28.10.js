@@ -370,58 +370,58 @@
 
 
 
-// var ListNode = function(val, next) {
-//   this.val = (val === undefined ?  0 : val );
-//   this.next = (next === undefined ? null : next);
-// }
-// var arrToLinky = function(arr) {
-//   let dummy = new ListNode();
-//   let current = dummy;
+var ListNode = function(val, next) {
+  this.val = (val === undefined ?  0 : val );
+  this.next = (next === undefined ? null : next);
+}
+var arrToLinky = function(arr) {
+  let dummy = new ListNode();
+  let current = dummy;
 
-//   for(const val of arr) {
-//       current.next = new ListNode(val);
-//       current = current.next;
-//   }
-//   return dummy.next;
-// }
+  for(const val of arr) {
+      current.next = new ListNode(val);
+      current = current.next;
+  }
+  return dummy.next;
+}
 
-// var addTwoNumbers = function(l1, l2) {
-//   let dummy = new ListNode(0);
-//   let current = dummy;
-//   let carry = 0;
+var addTwoNumbers = function(l1, l2) {
+  let dummy = new ListNode(0);
+  let current = dummy;
+  let carry = 0;
 
-//   while(l1 !== null || l2 !== null || carry > 0) {
-//       var val1 = l1 ? l1.val : 0;
-//       var val2 = l2 ? l2.val : 0;
+  while(l1 !== null || l2 !== null || carry > 0) {
+      var val1 = l1 ? l1.val : 0;
+      var val2 = l2 ? l2.val : 0;
 
-//       var sum = val1 + val2 + carry;
-//       carry = Math.floor(sum / 10);
-//       sum %= 10;
+      var sum = val1 + val2 + carry;
+      carry = Math.floor(sum / 10);
+      sum %= 10;
 
-//       current.next = new ListNode(sum);
-//       current = current.next;
+      current.next = new ListNode(sum);
+      current = current.next;
 
-//       if(l1) l1 = l1.next;
-//       if(l2) l2 = l2.next;
-//   }
-//   return dummy.next
-// }
+      if(l1) l1 = l1.next;
+      if(l2) l2 = l2.next;
+  }
+  return dummy.next
+}
 
-// let inputArray1 = [2,4,3];
-// let inputArray2 = [5,4,6];
+let inputArray1 = [2,4,3];
+let inputArray2 = [5,4,6];
 
-// let linked1 = arrToLinky(inputArray1);
-// let linked2 = arrToLinky(inputArray2);
+let linked1 = arrToLinky(inputArray1);
+let linked2 = arrToLinky(inputArray2);
 
-// let res1 = addTwoNumbers(linked1,linked2);
+let res1 = addTwoNumbers(linked1,linked2);
 
-// let modifiedArr = [];
-// let current1 = res1;
-// while(current1) {
-//   modifiedArr.push(current1.val)
-//   current1 = current1.next;
-// }
-// console.log(modifiedArr)
+let modifiedArr = [];
+let current1 = res1;
+while(current1) {
+  modifiedArr.push(current1.val)
+  current1 = current1.next;
+}
+console.log(modifiedArr)
 
 
 

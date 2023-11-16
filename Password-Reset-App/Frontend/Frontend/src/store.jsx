@@ -1,18 +1,15 @@
 import { configureStore, combineReducers} from "@reduxjs/toolkit";
 import thunk from 'redux-thunk'
-import { userLoginReducer, userRegisterReducer, userResetReducer, userUpdateReducer } from "./reducers/userReducers";
+import { userLoginReducer, userRegisterReducer, userResetPasswordReducer, userResetReducer, userUpdateReducer } from "./reducers/userReducers";
 // import { noteCreateReducer, noteDeleteReducer, noteListReducer, noteUpdateReducer } from "./reducers/notesReducers";
 
 const reducer = combineReducers({
     // this will contain all our reducers
     userLogin : userLoginReducer,
     userRegister: userRegisterReducer,
-    // noteList : noteListReducer,
-    // noteCreate : noteCreateReducer,
-    // noteUpdate: noteUpdateReducer,
-    // noteDelete: noteDeleteReducer,
     userUpdate: userUpdateReducer,
-    userReset: userResetReducer
+    userReset: userResetReducer,
+    userResetPassword: userResetPasswordReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem("userInfo")

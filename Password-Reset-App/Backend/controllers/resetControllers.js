@@ -4,13 +4,16 @@ const User = require('../models/userModels');
 const nodemailer = require('nodemailer');
 const crypto = require('crypto');
 const { resetPasswordEmailTemplate } = require('../utils/resetPasswordEmailTemplate'); // Create the email template function
+const generateToken = require('../utils/generateToken')
+const bcrypt = require('bcrypt')
+
 
 // const router = express.Router();
 
 // Generate a random token for password reset
-const generateResetToken = () => {
-  return crypto.randomBytes(20).toString('hex');
-};
+// const generateResetToken = () => {
+//   return crypto.randomBytes(20).toString('hex');
+// };
 
 // Route to initiate the password reset process
 const initiatePasswordReset = asynchandler(async (req, res) => {
@@ -22,10 +25,10 @@ const initiatePasswordReset = asynchandler(async (req, res) => {
       return res.status(404).json({ message: 'User not found' });
     }
 
-    const resetToken = generateResetToken();
+    const resetToken = generateToken(user._id);
     user.resetPasswordToken = resetToken;
     user.resetPasswordExpires = Date.now() + 3600000; // Token valid for 1 hour
-
+    // await user.
     await user.save();
 
     // Send a password reset email with the reset token
@@ -37,7 +40,7 @@ const initiatePasswordReset = asynchandler(async (req, res) => {
       }
     });
 
-    const resetLink = `http://localhost:3000/reset-password/${resetToken}`;
+    const resetLink = `http://localhost:5173/reset-password/?token=${resetToken}`;
    console.log(resetPasswordEmailTemplate)
     const mailOptions = {
       from: 'faseeullah.1998@gmail.com',
@@ -47,13 +50,21 @@ const initiatePasswordReset = asynchandler(async (req, res) => {
     
     };
     
-    transporter.sendMail(mailOptions, (err) => {
-      if (err) {
-        console.error(err);
-        return res.status(500).json({ message: 'Email could not be sent' });
-      }
+    // transporter.sendMail(mailOptions, (err) => {
+    //   if (err) {
+    //     console.error(err);
+    //     return res.status(500).json({ message: 'Email could not be sent' });
+    //   }
+    //   res.status(200).json({ message: 'Password reset link sent to your email' });
+    // });
+    try {
+      await transporter.sendMail(mailOptions);
       res.status(200).json({ message: 'Password reset link sent to your email' });
-    });
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ message: 'Email could not be sent' });
+    }
+    
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Internal server error' });
@@ -85,23 +96,26 @@ const verifyResetToken = asynchandler(async (req, res) => {
 const resetPassword = asynchandler(async (req, res) => {
   try {
     const token = req.params.token;
-    const { newPassword } = req.body;
-
+    const { password } = req.body;
+    console.log(token);
     const user = await User.findOne({
-      resetPasswordToken: token,
-      resetPasswordExpires: { $gt: Date.now() }
+      resetPasswordToken : token,
+      // resetPasswordExpires: { $gt: Date.now() }
     });
-
+    console.log(user);
     if (!user) {
       return res.status(400).json({ message: 'Invalid or expired token' });
     }
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+    console.log(hashedPassword);
+    user.password = hashedPassword;
+    // user.resetPasswordToken = undefined;
+    // user.resetPasswordExpires = undefined;
 
-    user.password = newPassword;
-    user.resetPasswordToken = undefined;
-    user.resetPasswordExpires = undefined;
-
-    await user.save();
-
+    // await user.save();
+    let user1 = await User.findOneAndUpdate({email: user.email}, {password: hashedPassword})
+    console.log(user1);
     res.status(200).json({ message: 'Password reset successfully' });
   } catch (error) {
     console.error(error);
@@ -113,4 +127,4 @@ const resetPassword = asynchandler(async (req, res) => {
 // router.get('/reset-password/:token', verifyResetToken);
 // router.post('/reset-password/:token', resetPassword);
 
-module.exports = {generateResetToken,initiatePasswordReset,resetPassword,verifyResetToken};
+module.exports = {initiatePasswordReset,resetPassword,verifyResetToken};

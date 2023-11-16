@@ -317,7 +317,7 @@ let inputArray2 = [5,4,6];
 let linked1 = arrToLinky(inputArray1);
 let linked2 = arrToLinky(inputArray2);
 
-let res1 = addTwoNumbers(inputArray1,inputArray2);
+let res1 = addTwoNumbers(linked1,linked2);
 
 let modifiedArr = [];
 let current1 = res1;

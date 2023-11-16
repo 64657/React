@@ -7,9 +7,9 @@ const router = express.Router()
 
 router.route('/register').post(registerUser)
 router.route('/login').post(authUser)
-router.route('/profile').post(protect, updateUserProfile)
+router.route('/profile').put(protect, updateUserProfile)
 router.route('/reset-password').post(initiatePasswordReset);
-router.route('/reset-password/:token').get(protect,verifyResetToken);
-router.route('/reset-password/:token').post(protect,resetPassword);
+router.route('/reset-password/:token').get(verifyResetToken);
+router.route('/reset-password/:token').post(resetPassword);
 
 module.exports = router;

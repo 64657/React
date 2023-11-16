@@ -25,11 +25,14 @@ const userSchema = mongoose.Schema(
             type: Boolean,
             default: false,
         },
+        resetPasswordToken: {
+            type: String,
+        }
         // pic: {
         //     type: String,
         //     required: true,
         //     default:
-        //         "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
+        //         "https://icon-librarycom/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
         // },
 
     },
@@ -39,9 +42,9 @@ const userSchema = mongoose.Schema(
 );
 
 userSchema.pre('save', async function (next) {
-    if (!this.isModified('password'))  {
-        next();
-    }
+    // if (!this.isModified('password'))  {
+        // next();
+    // }
 
     const salt = await bcrypt.genSalt(10);
     this.password = await bcrypt.hash(this.password, salt);

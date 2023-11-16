@@ -7,6 +7,9 @@ import {
     USER_REGISTER_REQUEST, 
     USER_REGISTER_SUCCESS, 
     USER_RESET_FAIL, 
+    USER_RESET_PASSWORD_FAIL, 
+    USER_RESET_PASSWORD_REQUEST, 
+    USER_RESET_PASSWORD_SUCCESS, 
     USER_RESET_REQUEST, 
     USER_RESET_SUCCESS, 
     USER_UPDATE_FAIL, 
@@ -64,6 +67,26 @@ export const userResetReducer = (state = {}, action) => {
         return { loading: false, success: true };
       case USER_RESET_FAIL:
         return { loading: false, error: action.payload };
+      default:
+        return state;
+    }
+  };
+
+
+  const initialResetPasswordState = {
+    loading: false,
+    success: false,
+    error: null,
+  };
+  
+  export const userResetPasswordReducer = (state = initialResetPasswordState, action) => {
+    switch (action.type) {
+      case USER_RESET_PASSWORD_REQUEST:
+        return { ...state, loading: true };
+      case USER_RESET_PASSWORD_SUCCESS:
+        return { ...state, loading: false, success: true };
+      case USER_RESET_PASSWORD_FAIL:
+        return { ...state, loading: false, error: action.payload };
       default:
         return state;
     }

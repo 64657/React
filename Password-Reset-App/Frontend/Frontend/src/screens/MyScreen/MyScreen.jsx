@@ -12,11 +12,11 @@ function MyScreen() {
   const userLogin = useSelector((state) => state.userLogin);
   const userInfo = userLogin.userInfo; // Access userInfo from userLogin state
 
-  useEffect(() => {
-    if (userInfo) {
-      navigate("/myscreen");
-    }
-  }, [userInfo]);
+  // useEffect(() => {
+  //   if (userInfo) {
+  //     navigate("/");
+  //   }
+  // }, [userInfo]);
 
   return (
     <MainScreen title={`Welcome Back ${userInfo && userInfo.name}..`}>

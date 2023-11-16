@@ -27,6 +27,9 @@ const LoginScreen = () => {
     if(userInfo) {
       navigate("/myscreen")
     }
+    // else {
+    //   navigate("/homepage")
+    // }
   },[userInfo])
 
   const submitHandler = async(e) => {
